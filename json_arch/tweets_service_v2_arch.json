@@ -1,0 +1,16 @@
+{
+  "arch": "tweets_service_v2",
+  "version": "arch-0.1",
+  "description": "compose yaml",
+  "args": "[./compose2arch/compose2arch -file /home/jeqo/src/github.com/jeqo/talk-observing-distributed-systems/tweets.service-v2.yml]",
+  "date": "2018-02-28T02:33:28.368733142+01:00",
+  "services": [
+    { "name": "tweets-elasticsearch", "package": "store", "regions": 1, "count": 3, "dependencies": null},
+    { "name": "tweets-indexer", "process": "process", "package": "monolith", "regions": 1, "count": 10, "dependencies": ["tweets-elasticsearch"]},
+    { "name": "tweets-search", "package": "monolith", "regions": 1, "count": 3, "dependencies": ["tweets-elasticsearch"]},
+    { "name": "tweets-zookeeper", "package": "eureka", "regions": 1, "count": 3, "dependencies": ["tweets-indexer"] },
+    { "name": "tweets-kafka", "package": "staash", "regions": 1, "count": 3, "dependencies": ["tweets-zookeeper"]},
+    { "name": "tweets-worker", "package": "monolith", "regions": 1, "count": 3, "dependencies": ["tweets-kafka"]},
+    { "name": "www-tweets", "package": "denominator", "count": 0,  "dependencies": ["tweets-search","tweets-worker"]}
+  ]
+}

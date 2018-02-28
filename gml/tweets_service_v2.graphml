@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <graphml xmlns="http://graphml.graphdrawing.org/xmlns/graphml"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns/graphml http://www.yworks.com/xml/schema/graphml/1.0/ygraphml.xsd"
+    xmlns:y="http://www.yworks.com/xml/graphml">
+    <key id="d0" for="node" yfiles.type="nodegraphics"/>
+    <key id="d1" for="edge" yfiles.type="edgegraphics"/>
+    <key id="d2" for="node" attr.name="Text" attr.type="string"/>
+    <graph id="spigo" edgedefault="directed">
+      <node id="tweets_service_v2.us-east-1.zoneA.tweets-search00"><data key="service">monolith</data></node>
+      <node id="tweets_service_v2.us-east-1.zoneB.tweets-search01"><data key="service">monolith</data></node>
+      <node id="tweets_service_v2.us-east-1.zoneC.tweets-search02"><data key="service">monolith</data></node>
+      <node id="tweets_service_v2.*.*.www-tweets00"><data key="service">denominator</data></node>
+      <node id="tweets_service_v2.us-east-1.zoneA.tweets-elasticsearch00"><data key="service">store</data></node>
+      <node id="tweets_service_v2.us-east-1.zoneB.tweets-elasticsearch01"><data key="service">store</data></node>
+      <edge id="e1" source="tweets_service_v2.*.*.www-tweets00" target="tweets_service_v2.us-east-1.zoneC.tweets-search02"/>
+      <edge id="e2" source="tweets_service_v2.*.*.www-tweets00" target="tweets_service_v2.us-east-1.zoneB.tweets-search01"/>
+      <edge id="e3" source="tweets_service_v2.*.*.www-tweets00" target="tweets_service_v2.us-east-1.zoneA.tweets-search00"/>
+      <node id="tweets_service_v2.us-east-1.zoneC.tweets-elasticsearch02"><data key="service">store</data></node>
+      <node id="tweets_service_v2.us-east-1.zoneA.tweets-kafka00"><data key="service">store</data></node>
+      <node id="tweets_service_v2.us-east-1.zoneB.tweets-kafka01"><data key="service">store</data></node>
+      <node id="tweets_service_v2.us-east-1.zoneC.tweets-kafka02"><data key="service">store</data></node>
+      <node id="tweets_service_v2.us-east-1.zoneC.tweets-worker02"><data key="service">monolith</data></node>
+      <node id="tweets_service_v2.us-east-1.zoneC.tweets-indexer02"><data key="service">monolith</data></node>
+      <node id="tweets_service_v2.us-east-1.zoneC.tweets-indexer05"><data key="service">monolith</data></node>
+      <node id="tweets_service_v2.us-east-1.zoneA.tweets-worker00"><data key="service">monolith</data></node>
+      <node id="tweets_service_v2.us-east-1.zoneC.tweets-indexer08"><data key="service">monolith</data></node>
+      <node id="tweets_service_v2.us-east-1.zoneA.tweets-indexer00"><data key="service">monolith</data></node>
+      <node id="tweets_service_v2.us-east-1.zoneA.tweets-indexer03"><data key="service">monolith</data></node>
+      <node id="tweets_service_v2.us-east-1.zoneA.tweets-indexer06"><data key="service">monolith</data></node>
+      <node id="tweets_service_v2.us-east-1.zoneB.tweets-worker01"><data key="service">monolith</data></node>
+      <node id="tweets_service_v2.us-east-1.zoneB.tweets-indexer01"><data key="service">monolith</data></node>
+      <node id="tweets_service_v2.us-east-1.zoneB.tweets-indexer04"><data key="service">monolith</data></node>
+      <node id="tweets_service_v2.us-east-1.zoneB.tweets-indexer07"><data key="service">monolith</data></node>
+      <node id="tweets_service_v2.us-east-1.zoneA.tweets-indexer09"><data key="service">monolith</data></node>
+      <edge id="e4" source="tweets_service_v2.us-east-1.zoneC.tweets-worker02" target="tweets_service_v2.us-east-1.zoneC.tweets-kafka02"/>
+      <node id="tweets_service_v2.us-east-1.zoneC.tweets-zookeeper02"><data key="service">store</data></node>
+      <edge id="e5" source="tweets_service_v2.us-east-1.zoneC.tweets-indexer02" target="tweets_service_v2.us-east-1.zoneA.tweets-kafka00"/>
+      <edge id="e6" source="tweets_service_v2.us-east-1.zoneC.tweets-indexer02" target="tweets_service_v2.us-east-1.zoneB.tweets-kafka01"/>
+      <edge id="e7" source="tweets_service_v2.us-east-1.zoneC.tweets-indexer02" target="tweets_service_v2.us-east-1.zoneC.tweets-kafka02"/>
+      <edge id="e8" source="tweets_service_v2.us-east-1.zoneC.tweets-indexer02" target="tweets_service_v2.us-east-1.zoneC.tweets-elasticsearch02"/>
+      <edge id="e9" source="tweets_service_v2.us-east-1.zoneC.tweets-indexer02" target="tweets_service_v2.us-east-1.zoneA.tweets-elasticsearch00"/>
+      <edge id="e10" source="tweets_service_v2.us-east-1.zoneC.tweets-indexer02" target="tweets_service_v2.us-east-1.zoneB.tweets-elasticsearch01"/>
+      <edge id="e11" source="tweets_service_v2.us-east-1.zoneC.tweets-worker02" target="tweets_service_v2.us-east-1.zoneB.tweets-kafka01"/>
+      <edge id="e12" source="tweets_service_v2.us-east-1.zoneC.tweets-indexer08" target="tweets_service_v2.us-east-1.zoneC.tweets-kafka02"/>
+      <edge id="e13" source="tweets_service_v2.us-east-1.zoneC.tweets-indexer08" target="tweets_service_v2.us-east-1.zoneB.tweets-kafka01"/>
+      <edge id="e14" source="tweets_service_v2.us-east-1.zoneC.tweets-indexer08" target="tweets_service_v2.us-east-1.zoneA.tweets-elasticsearch00"/>
+      <edge id="e15" source="tweets_service_v2.us-east-1.zoneC.tweets-indexer08" target="tweets_service_v2.us-east-1.zoneA.tweets-kafka00"/>
+      <edge id="e16" source="tweets_service_v2.us-east-1.zoneC.tweets-worker02" target="tweets_service_v2.us-east-1.zoneA.tweets-kafka00"/>
+      <edge id="e17" source="tweets_service_v2.us-east-1.zoneC.tweets-indexer08" target="tweets_service_v2.us-east-1.zoneB.tweets-elasticsearch01"/>
+      <edge id="e18" source="tweets_service_v2.us-east-1.zoneC.tweets-indexer08" target="tweets_service_v2.us-east-1.zoneC.tweets-elasticsearch02"/>
+      <node id="tweets_service_v2.us-east-1.zoneB.tweets-zookeeper01"><data key="service">store</data></node>
+      <edge id="e19" source="tweets_service_v2.us-east-1.zoneB.tweets-worker01" target="tweets_service_v2.us-east-1.zoneC.tweets-kafka02"/>
+      <edge id="e20" source="tweets_service_v2.us-east-1.zoneB.tweets-indexer04" target="tweets_service_v2.us-east-1.zoneA.tweets-kafka00"/>
+      <edge id="e21" source="tweets_service_v2.us-east-1.zoneB.tweets-indexer01" target="tweets_service_v2.us-east-1.zoneB.tweets-kafka01"/>
+      <edge id="e22" source="tweets_service_v2.us-east-1.zoneB.tweets-indexer01" target="tweets_service_v2.us-east-1.zoneC.tweets-kafka02"/>
+      <edge id="e23" source="tweets_service_v2.us-east-1.zoneB.tweets-indexer01" target="tweets_service_v2.us-east-1.zoneA.tweets-kafka00"/>
+      <edge id="e24" source="tweets_service_v2.us-east-1.zoneB.tweets-indexer04" target="tweets_service_v2.us-east-1.zoneB.tweets-kafka01"/>
+      <node id="tweets_service_v2.us-east-1.zoneA.tweets-zookeeper00"><data key="service">store</data></node>
+      <edge id="e25" source="tweets_service_v2.us-east-1.zoneB.tweets-indexer04" target="tweets_service_v2.us-east-1.zoneC.tweets-kafka02"/>
+      <edge id="e26" source="tweets_service_v2.us-east-1.zoneB.tweets-indexer07" target="tweets_service_v2.us-east-1.zoneA.tweets-kafka00"/>
+      <edge id="e27" source="tweets_service_v2.us-east-1.zoneB.tweets-indexer07" target="tweets_service_v2.us-east-1.zoneB.tweets-kafka01"/>
+      <edge id="e28" source="tweets_service_v2.us-east-1.zoneB.tweets-worker01" target="tweets_service_v2.us-east-1.zoneA.tweets-kafka00"/>
+      <edge id="e29" source="tweets_service_v2.us-east-1.zoneB.tweets-worker01" target="tweets_service_v2.us-east-1.zoneB.tweets-kafka01"/>
+      <edge id="e30" source="tweets_service_v2.us-east-1.zoneB.tweets-indexer07" target="tweets_service_v2.us-east-1.zoneC.tweets-kafka02"/>
+      <edge id="e31" source="tweets_service_v2.us-east-1.zoneB.tweets-indexer01" target="tweets_service_v2.us-east-1.zoneB.tweets-elasticsearch01"/>
+      <edge id="e32" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer00" target="tweets_service_v2.us-east-1.zoneC.tweets-kafka02"/>
+      <edge id="e33" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer03" target="tweets_service_v2.us-east-1.zoneA.tweets-kafka00"/>
+      <edge id="e34" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer00" target="tweets_service_v2.us-east-1.zoneA.tweets-kafka00"/>
+      <edge id="e35" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer03" target="tweets_service_v2.us-east-1.zoneB.tweets-kafka01"/>
+      <edge id="e36" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer00" target="tweets_service_v2.us-east-1.zoneB.tweets-kafka01"/>
+      <edge id="e37" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer03" target="tweets_service_v2.us-east-1.zoneC.tweets-kafka02"/>
+      <edge id="e38" source="tweets_service_v2.us-east-1.zoneB.tweets-indexer01" target="tweets_service_v2.us-east-1.zoneC.tweets-elasticsearch02"/>
+      <edge id="e39" source="tweets_service_v2.us-east-1.zoneA.tweets-worker00" target="tweets_service_v2.us-east-1.zoneC.tweets-kafka02"/>
+      <edge id="e40" source="tweets_service_v2.us-east-1.zoneA.tweets-worker00" target="tweets_service_v2.us-east-1.zoneA.tweets-kafka00"/>
+      <edge id="e41" source="tweets_service_v2.us-east-1.zoneB.tweets-indexer04" target="tweets_service_v2.us-east-1.zoneA.tweets-elasticsearch00"/>
+      <edge id="e42" source="tweets_service_v2.us-east-1.zoneA.tweets-worker00" target="tweets_service_v2.us-east-1.zoneB.tweets-kafka01"/>
+      <edge id="e43" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer06" target="tweets_service_v2.us-east-1.zoneB.tweets-kafka01"/>
+      <edge id="e44" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer06" target="tweets_service_v2.us-east-1.zoneA.tweets-kafka00"/>
+      <edge id="e45" source="tweets_service_v2.us-east-1.zoneB.tweets-indexer01" target="tweets_service_v2.us-east-1.zoneA.tweets-elasticsearch00"/>
+      <edge id="e46" source="tweets_service_v2.us-east-1.zoneB.tweets-indexer04" target="tweets_service_v2.us-east-1.zoneC.tweets-elasticsearch02"/>
+      <edge id="e47" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer06" target="tweets_service_v2.us-east-1.zoneC.tweets-kafka02"/>
+      <edge id="e48" source="tweets_service_v2.us-east-1.zoneB.tweets-indexer04" target="tweets_service_v2.us-east-1.zoneB.tweets-elasticsearch01"/>
+      <edge id="e49" source="tweets_service_v2.us-east-1.zoneB.tweets-indexer07" target="tweets_service_v2.us-east-1.zoneC.tweets-elasticsearch02"/>
+      <edge id="e50" source="tweets_service_v2.us-east-1.zoneB.tweets-indexer07" target="tweets_service_v2.us-east-1.zoneB.tweets-elasticsearch01"/>
+      <edge id="e51" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer09" target="tweets_service_v2.us-east-1.zoneB.tweets-kafka01"/>
+      <edge id="e52" source="tweets_service_v2.us-east-1.zoneB.tweets-indexer07" target="tweets_service_v2.us-east-1.zoneA.tweets-elasticsearch00"/>
+      <edge id="e53" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer09" target="tweets_service_v2.us-east-1.zoneA.tweets-kafka00"/>
+      <edge id="e54" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer09" target="tweets_service_v2.us-east-1.zoneA.tweets-elasticsearch00"/>
+      <edge id="e55" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer09" target="tweets_service_v2.us-east-1.zoneC.tweets-kafka02"/>
+      <edge id="e56" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer00" target="tweets_service_v2.us-east-1.zoneC.tweets-elasticsearch02"/>
+      <edge id="e57" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer09" target="tweets_service_v2.us-east-1.zoneB.tweets-elasticsearch01"/>
+      <edge id="e58" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer09" target="tweets_service_v2.us-east-1.zoneC.tweets-elasticsearch02"/>
+      <edge id="e59" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer00" target="tweets_service_v2.us-east-1.zoneB.tweets-elasticsearch01"/>
+      <edge id="e60" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer03" target="tweets_service_v2.us-east-1.zoneA.tweets-elasticsearch00"/>
+      <edge id="e61" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer00" target="tweets_service_v2.us-east-1.zoneA.tweets-elasticsearch00"/>
+      <edge id="e62" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer06" target="tweets_service_v2.us-east-1.zoneB.tweets-elasticsearch01"/>
+      <edge id="e63" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer03" target="tweets_service_v2.us-east-1.zoneB.tweets-elasticsearch01"/>
+      <edge id="e64" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer03" target="tweets_service_v2.us-east-1.zoneC.tweets-elasticsearch02"/>
+      <edge id="e65" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer06" target="tweets_service_v2.us-east-1.zoneC.tweets-elasticsearch02"/>
+      <edge id="e66" source="tweets_service_v2.us-east-1.zoneA.tweets-indexer06" target="tweets_service_v2.us-east-1.zoneA.tweets-elasticsearch00"/>
+      <edge id="e67" source="tweets_service_v2.us-east-1.zoneC.tweets-indexer05" target="tweets_service_v2.us-east-1.zoneA.tweets-kafka00"/>
+      <edge id="e68" source="tweets_service_v2.us-east-1.zoneC.tweets-indexer05" target="tweets_service_v2.us-east-1.zoneC.tweets-kafka02"/>
+      <edge id="e69" source="tweets_service_v2.us-east-1.zoneC.tweets-indexer05" target="tweets_service_v2.us-east-1.zoneB.tweets-kafka01"/>
+      <edge id="e70" source="tweets_service_v2.us-east-1.zoneC.tweets-indexer05" target="tweets_service_v2.us-east-1.zoneB.tweets-elasticsearch01"/>
+      <edge id="e71" source="tweets_service_v2.us-east-1.zoneC.tweets-indexer05" target="tweets_service_v2.us-east-1.zoneA.tweets-elasticsearch00"/>
+      <edge id="e72" source="tweets_service_v2.us-east-1.zoneC.tweets-indexer05" target="tweets_service_v2.us-east-1.zoneC.tweets-elasticsearch02"/>
+      <edge id="e73" source="tweets_service_v2.us-east-1.zoneA.tweets-search00" target="tweets_service_v2.us-east-1.zoneC.tweets-elasticsearch02"/>
+      <edge id="e74" source="tweets_service_v2.us-east-1.zoneA.tweets-search00" target="tweets_service_v2.us-east-1.zoneA.tweets-elasticsearch00"/>
+      <edge id="e75" source="tweets_service_v2.us-east-1.zoneA.tweets-search00" target="tweets_service_v2.us-east-1.zoneB.tweets-elasticsearch01"/>
+      <edge id="e76" source="tweets_service_v2.us-east-1.zoneB.tweets-search01" target="tweets_service_v2.us-east-1.zoneB.tweets-elasticsearch01"/>
+      <edge id="e77" source="tweets_service_v2.us-east-1.zoneB.tweets-search01" target="tweets_service_v2.us-east-1.zoneC.tweets-elasticsearch02"/>
+      <edge id="e78" source="tweets_service_v2.us-east-1.zoneB.tweets-search01" target="tweets_service_v2.us-east-1.zoneA.tweets-elasticsearch00"/>
+      <edge id="e79" source="tweets_service_v2.us-east-1.zoneC.tweets-search02" target="tweets_service_v2.us-east-1.zoneB.tweets-elasticsearch01"/>
+      <edge id="e80" source="tweets_service_v2.us-east-1.zoneC.tweets-search02" target="tweets_service_v2.us-east-1.zoneC.tweets-elasticsearch02"/>
+      <edge id="e81" source="tweets_service_v2.us-east-1.zoneC.tweets-search02" target="tweets_service_v2.us-east-1.zoneA.tweets-elasticsearch00"/>
+      <edge id="e82" source="tweets_service_v2.*.*.www-tweets00" target="tweets_service_v2.us-east-1.zoneC.tweets-worker02"/>
+      <edge id="e83" source="tweets_service_v2.*.*.www-tweets00" target="tweets_service_v2.us-east-1.zoneB.tweets-worker01"/>
+      <edge id="e84" source="tweets_service_v2.*.*.www-tweets00" target="tweets_service_v2.us-east-1.zoneA.tweets-worker00"/>
+      <edge id="e85" source="tweets_service_v2.us-east-1.zoneA.tweets-kafka00" target="tweets_service_v2.us-east-1.zoneB.tweets-zookeeper01"/>
+      <edge id="e86" source="tweets_service_v2.us-east-1.zoneA.tweets-kafka00" target="tweets_service_v2.us-east-1.zoneA.tweets-zookeeper00"/>
+      <edge id="e87" source="tweets_service_v2.us-east-1.zoneA.tweets-kafka00" target="tweets_service_v2.us-east-1.zoneC.tweets-zookeeper02"/>
+      <edge id="e88" source="tweets_service_v2.us-east-1.zoneC.tweets-kafka02" target="tweets_service_v2.us-east-1.zoneA.tweets-zookeeper00"/>
+      <edge id="e89" source="tweets_service_v2.us-east-1.zoneB.tweets-kafka01" target="tweets_service_v2.us-east-1.zoneA.tweets-zookeeper00"/>
+      <edge id="e90" source="tweets_service_v2.us-east-1.zoneC.tweets-kafka02" target="tweets_service_v2.us-east-1.zoneC.tweets-zookeeper02"/>
+      <edge id="e91" source="tweets_service_v2.us-east-1.zoneB.tweets-kafka01" target="tweets_service_v2.us-east-1.zoneC.tweets-zookeeper02"/>
+      <edge id="e92" source="tweets_service_v2.us-east-1.zoneB.tweets-kafka01" target="tweets_service_v2.us-east-1.zoneB.tweets-zookeeper01"/>
+      <edge id="e93" source="tweets_service_v2.us-east-1.zoneC.tweets-kafka02" target="tweets_service_v2.us-east-1.zoneB.tweets-zookeeper01"/>
+    </graph>
+  </graphml>
