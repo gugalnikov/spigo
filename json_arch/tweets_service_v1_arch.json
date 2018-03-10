@@ -1,0 +1,14 @@
+{
+  "arch": "tweets_service_v1",
+  "version": "arch-0.1",
+  "description": "compose yaml",
+  "args": "[./compose2arch/compose2arch -file /home/jeqo/src/github.com/jeqo/talk-observing-distributed-systems/tweets.service-v1.yml]",
+  "date": "2018-02-28T02:33:28.368733142+01:00",
+  "services": [
+    { "name": "tweets-postgres", "package": "store", "regions": 1, "count": 1, "dependencies": null},
+    { "name": "tweets-service", "package": "monolith", "regions": 1, "count": 3, "dependencies": ["tweets-postgres"]},
+    { "name": "www-elb",          "package": "elb",            "count": 0, "regions": 1, "dependencies": ["tweets-service"]},
+    { "name": "www",              "package": "denominator",    "count": 0, "regions": 0, "dependencies": ["www-elb"]}
+
+  ]
+}

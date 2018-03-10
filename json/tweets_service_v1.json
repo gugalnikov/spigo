@@ -1,0 +1,24 @@
+{
+  "arch":"tweets_service_v1",
+  "version":"spigo-0.4",
+  "args":"[./spigo -d 10 -j -a tweets_service_v1]",
+  "date":"2018-03-07T19:52:05.687705142+01:00",
+  "graph":[
+    {"node":"tweets_service_v1.us-east-1.zoneA.tweets-postgres00","package":"store","timestamp":"2018-03-07T19:52:05.68834694+01:00","metadata":"IP/54.198.0.1"},
+    {"node":"tweets_service_v1.us-east-1.zoneA.tweets-service00","package":"monolith","timestamp":"2018-03-07T19:52:05.688410977+01:00","metadata":"IP/54.198.0.2"},
+    {"edge":"e1","source":"tweets_service_v1.us-east-1.zoneA.tweets-service00","target":"tweets_service_v1.us-east-1.zoneA.tweets-postgres00","timestamp":"2018-03-07T19:52:05.688566726+01:00"},
+    {"node":"tweets_service_v1.us-east-1.zoneB.tweets-service01","package":"monolith","timestamp":"2018-03-07T19:52:05.688527481+01:00","metadata":"IP/54.221.0.1"},
+    {"node":"tweets_service_v1.us-east-1.zoneC.tweets-service02","package":"monolith","timestamp":"2018-03-07T19:52:05.688648153+01:00","metadata":"IP/50.19.0.1"},
+    {"node":"tweets_service_v1.us-east-1.*.www-elb00","package":"elb","timestamp":"2018-03-07T19:52:05.688740865+01:00","metadata":"IP/54.198.0.3"},
+    {"edge":"e2","source":"tweets_service_v1.us-east-1.*.www-elb00","target":"tweets_service_v1.us-east-1.zoneB.tweets-service01","timestamp":"2018-03-07T19:52:05.688951816+01:00"},
+    {"edge":"e3","source":"tweets_service_v1.us-east-1.zoneC.tweets-service02","target":"tweets_service_v1.us-east-1.zoneA.tweets-postgres00","timestamp":"2018-03-07T19:52:05.688792761+01:00"},
+    {"edge":"e4","source":"tweets_service_v1.us-east-1.*.www-elb00","target":"tweets_service_v1.us-east-1.zoneA.tweets-service00","timestamp":"2018-03-07T19:52:05.688914156+01:00"},
+    {"edge":"e5","source":"tweets_service_v1.us-east-1.*.www-elb00","target":"tweets_service_v1.us-east-1.zoneC.tweets-service02","timestamp":"2018-03-07T19:52:05.689008097+01:00"},
+    {"node":"tweets_service_v1.*.*.www00","package":"denominator","timestamp":"2018-03-07T19:52:05.689136303+01:00","metadata":"IP/54.198.0.4"},
+    {"edge":"e6","source":"tweets_service_v1.*.*.www00","target":"tweets_service_v1.us-east-1.*.www-elb00","timestamp":"2018-03-07T19:52:05.689203233+01:00"},
+    {"edge":"e7","source":"tweets_service_v1.us-east-1.zoneB.tweets-service01","target":"tweets_service_v1.us-east-1.zoneA.tweets-postgres00","timestamp":"2018-03-07T19:52:06.688607466+01:00"},
+    {"done":"tweets_service_v1.us-east-1.zoneA.tweets-service00","exit":"normal","timestamp":"2018-03-07T19:52:15.689609619+01:00"},
+    {"done":"tweets_service_v1.us-east-1.zoneC.tweets-service02","exit":"normal","timestamp":"2018-03-07T19:52:15.689611998+01:00"},
+    {"done":"tweets_service_v1.us-east-1.zoneB.tweets-service01","exit":"normal","timestamp":"2018-03-07T19:52:15.689603943+01:00"}
+  ]
+}

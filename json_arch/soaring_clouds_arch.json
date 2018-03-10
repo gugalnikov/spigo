@@ -1,0 +1,22 @@
+{
+  "arch": "soaring_clouds",
+  "version": "arch-0.1",
+  "description": "compose yaml",
+  "args": "",
+  "date": "2018-02-28T02:33:28.368733142+01:00",
+  "services": [
+    { "name": "event-hub",        "package": "store",       "regions": 1, "count": 9, "dependencies": null},
+    { "name": "choreographer",    "package": "karyon",      "regions": 1, "count": 6, "dependencies": ["event-hub"]},
+    { "name": "customer",         "package": "karyon",      "regions": 1, "count": 3, "dependencies": ["event-hub"]},
+    { "name": "logistics",        "package": "karyon",      "regions": 1, "count": 3, "dependencies": ["event-hub"]},
+    { "name": "financials",       "package": "karyon",      "regions": 1, "count": 3, "dependencies": ["event-hub"]},
+    { "name": "loyalty-program",  "package": "karyon",      "regions": 1, "count": 3, "dependencies": ["event-hub"]},
+    { "name": "product",          "package": "karyon",      "regions": 1, "count": 3, "dependencies": ["event-hub"]},
+    { "name": "order",            "package": "karyon",      "regions": 1, "count": 9, "dependencies": ["choreographer", "event-hub"]},
+    { "name": "choreographer-ui", "package": "karyon",      "regions": 1, "count": 6, "dependencies": ["choreographer"]},
+    { "name": "webshop",          "package": "karyon",      "regions": 1, "count": 9, "dependencies": ["order"]},
+    { "name": "wwwproxy",         "package": "zuul",        "regions": 1, "count": 3, "dependencies": ["webshop","choreographer-ui"]},
+    { "name": "www-elb",          "package": "elb",         "regions": 1, "count": 0, "dependencies": ["wwwproxy"]},
+    { "name": "www",              "package": "denominator", "regions": 0, "count": 0, "dependencies": ["www-elb"]}
+  ]
+}
