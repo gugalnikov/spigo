@@ -2,6 +2,11 @@
 package edda
 
 import (
+	"log"
+	"strings"
+	"sync"
+	"time"
+
 	"github.com/adrianco/spigo/tooling/archaius"
 	"github.com/adrianco/spigo/tooling/collect"
 	"github.com/adrianco/spigo/tooling/gotocol"
@@ -9,10 +14,6 @@ import (
 	"github.com/adrianco/spigo/tooling/graphml"
 	"github.com/adrianco/spigo/tooling/graphneo4j"
 	"github.com/adrianco/spigo/tooling/names"
-	"log"
-	"strings"
-	"sync"
-	"time"
 )
 
 // Logchan is a buffered channel for sending logging messages to, or nil if logging is off
@@ -35,7 +36,10 @@ func Start(name string) {
 	edges := make(map[string]bool, archaius.Conf.Dunbar)
 	var ok bool
 	hist := collect.NewHist(name)
+
 	log.Println(name + ": starting")
+
+	// Graph config
 	if archaius.Conf.GraphmlFile != "" {
 		graphml.Setup(archaius.Conf.GraphmlFile)
 	}
@@ -45,6 +49,7 @@ func Start(name string) {
 	if archaius.Conf.Neo4jURL != "" {
 		graphneo4j.Setup(archaius.Conf.Neo4jURL)
 	}
+
 	for {
 		msg, ok = <-Logchan
 		collect.Measure(hist, time.Since(msg.Sent))
@@ -88,6 +93,7 @@ func Start(name string) {
 			}
 		}
 	}
+
 	log.Println(name + ": closing")
 	graphml.Close()
 	graphjson.Close()

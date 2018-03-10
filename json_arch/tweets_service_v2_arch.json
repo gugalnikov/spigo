@@ -6,11 +6,14 @@
   "date": "2018-02-28T02:33:28.368733142+01:00",
   "services": [
     { "name": "tweets-elasticsearch", "package": "store", "regions": 1, "count": 3, "dependencies": null},
-    { "name": "tweets-indexer", "process": "process", "package": "monolith", "regions": 1, "count": 10, "dependencies": ["tweets-elasticsearch"]},
+    { "name": "tweets-indexer", "process": "process", "package": "monolith", "regions": 1, "count": 3, "dependencies": ["tweets-elasticsearch", "tweets-kafka"]},
     { "name": "tweets-search", "package": "monolith", "regions": 1, "count": 3, "dependencies": ["tweets-elasticsearch"]},
-    { "name": "tweets-zookeeper", "package": "eureka", "regions": 1, "count": 3, "dependencies": ["tweets-indexer"] },
+    { "name": "tweets-zookeeper", "package": "eureka", "regions": 1, "count": 1, "dependencies": null },
     { "name": "tweets-kafka", "package": "staash", "regions": 1, "count": 3, "dependencies": ["tweets-zookeeper"]},
     { "name": "tweets-worker", "package": "monolith", "regions": 1, "count": 3, "dependencies": ["tweets-kafka"]},
-    { "name": "www-tweets", "package": "denominator", "count": 0,  "dependencies": ["tweets-search","tweets-worker"]}
+    { "name": "www-tweets", "package": "elb", "count": 0, "regions": 1, "dependencies": ["tweets-search","tweets-worker"]},
+    { "name": "www",              "package": "denominator",    "count": 0, "regions": 0, "dependencies": ["www-tweets"]}
+
+
   ]
 }

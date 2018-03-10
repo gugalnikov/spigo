@@ -71,6 +71,7 @@ func main() {
 	if archaius.Conf.Collect {
 		collect.Serve(8123) // start web server at port
 	}
+	// Graph Configuration
 	if graphjsonEnabled || graphmlEnabled || neo4jEnabled {
 		if graphjsonEnabled {
 			archaius.Conf.GraphjsonFile = archaius.Conf.Arch
@@ -97,14 +98,18 @@ func main() {
 		// make a big buffered channel so logging can start before edda is scheduled
 		edda.Logchan = make(chan gotocol.Message, 1000)
 	}
+
+	//Set duration
 	archaius.Conf.RunDuration = time.Duration(duration) * time.Second
 
+	//Write configuration
 	if *saveConfFile {
 		archaius.WriteConf()
 	}
 
 	// start up the selected architecture
 	go edda.Start(archaius.Conf.Arch + ".edda") // start edda first
+
 	if reload {
 		asgard.Run(asgard.Reload(archaius.Conf.Arch), "")
 	} else {
@@ -118,11 +123,13 @@ func main() {
 			if a == nil {
 				log.Fatal("Architecture " + archaius.Conf.Arch + " isn't recognized")
 			} else {
-				architecture.Start(a)
+				architecture.Start(a) // starts architecture
 			}
 		}
 	}
+
 	log.Println("spigo: complete")
+
 	// stop edda if it's running and wait for edda to flush messages
 	if edda.Logchan != nil {
 		close(edda.Logchan)
