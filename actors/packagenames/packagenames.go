@@ -16,7 +16,14 @@ const (
 	RiakPkg           = "riak"
 	VolumePkg         = "volume"
 	CachePkg          = "cache"
+	Data-integrationPkg = "Data-integration"
+	Microservices-platformPkg = "Microservices-platform"
+	ServerlessPkg = "Serverless"
+	UIPkg = "UI"
+	APIPkg = "API"
+	AppsPkg = "Apps"
+	CI-CDPkg = "CI-CD"
 )
 
 // Packages array of names
-var Packages = []string{EurekaPkg, PiratePkg, ElbPkg, DenominatorPkg, ZuulPkg, KaryonPkg, MonolithPkg, StaashPkg, PriamCassandraPkg, StorePkg, RiakPkg, VolumePkg, CachePkg}
+var Packages = []string{CI-CDPkg, AppsPkg, APIPkg, UIPkg, ServerlessPkg, Microservices-platformPkg, Data-integrationPkg, EurekaPkg, PiratePkg, ElbPkg, DenominatorPkg, ZuulPkg, KaryonPkg, MonolithPkg, StaashPkg, PriamCassandraPkg, StorePkg, RiakPkg, VolumePkg, CachePkg}
