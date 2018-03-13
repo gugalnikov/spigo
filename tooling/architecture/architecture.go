@@ -5,7 +5,7 @@ package architecture
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/adrianco/spigo/actors/packagenames" // name definitions
+	"github.com/gugalnikov/spigo/actors/packagenames" // name definitions
 	"github.com/adrianco/spigo/tooling/archaius"    // global configuration
 	"github.com/adrianco/spigo/tooling/asgard"      // tools to create an architecture
 	"io/ioutil"
